@@ -1,0 +1,39 @@
+﻿@model grupoelcomercio.com.web.Models.OrdenViewModel
+@{
+    ViewBag.Title = "Orden de Pago";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Registro de Banco</h2>
+@using (Ajax.BeginForm("Registrar", "Orden", null, new AjaxOptions()
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "resultTarget"
+}, new { @id = "registro-orden" }))
+{
+
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.Monto)
+        @Html.TextBoxFor(x => x.Monto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(X => X.Monto, "Debe ingresar el monto", new { @class = "has-error" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.BancoId)
+        @Html.DropDownListFor(x => x.BancoId, new SelectList(ViewBag.Bancos, "Id", "Nombre"), "--Seleccione--", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.TipoMoneda)
+        @Html.DropDownListFor(x => x.TipoMoneda, new SelectList(ViewBag.TipoMonedas, "Id", "Value"), "--Seleccione--", new { @class = "form-control" })
+    </div>
+
+
+    <input type="submit" class="btn btn-default" value="Registrar" />
+
+}
+
+<div id="resultTarget"></div>

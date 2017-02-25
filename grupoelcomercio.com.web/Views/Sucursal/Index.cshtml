@@ -1,0 +1,37 @@
+﻿@model grupoelcomercio.com.web.Models.SucursalViewModel
+@{
+    ViewBag.Title = "Registro de Sucursal";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Registro de Banco</h2>
+@using (Ajax.BeginForm("Registrar", "Sucursal", null, new AjaxOptions()
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "resultTarget"
+}, new { @id = "registro-sucursal" }))
+{
+
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.NombreSucursal)
+        @Html.TextBoxFor(x => x.NombreSucursal, new { @class = "form-control" })
+        @Html.ValidationMessageFor(X => X.NombreSucursal, "Debe ingresar un nombre", new { @class = "has-error" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.DireccionSucursal)
+        @Html.TextAreaFor(x => x.DireccionSucursal, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.BancoId)
+        @Html.DropDownListFor(x => x.BancoId,new SelectList(ViewBag.Bancos, "Id", "Nombre"), "--Seleccione--", new { @class="form-control" })
+    </div>
+
+
+    <input type="submit" class="btn btn-default" value="Registrar" />
+
+}
+
+<div id="resultTarget"></div>

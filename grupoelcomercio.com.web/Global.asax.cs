@@ -1,0 +1,19 @@
+﻿using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace grupoelcomercio.com.web
+{
+    public class Global : System.Web.HttpApplication
+    {
+
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilter(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+    }
+}

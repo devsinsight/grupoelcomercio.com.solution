@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="grupoelcomercio.com.OrdenDePago.Entities.Banco">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAgAAIAAAAAAABAAAAACAAAAA=</HashCode>
+      <FileName>Entities\Banco.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sucursal" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="grupoelcomercio.com.OrdenDePago.Entities.OrdenDePago">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAQAAAAAAAAg=</HashCode>
+      <FileName>Entities\OrdenDePago.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Banco" />
+      <Property Name="TipoMoneda" />
+      <Property Name="Estado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="grupoelcomercio.com.OrdenDePago.Entities.Sucursal">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Entities\Sucursal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="grupoelcomercio.com.OrdenDePago.Entities.Estado">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAIAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entities\Estado.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="grupoelcomercio.com.OrdenDePago.Entities.TipoMoneda">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\TipoMoneda.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
