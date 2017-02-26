@@ -1,8 +1,15 @@
 ﻿using grupoelcomercio.com.api.CommandHandler;
 using grupoelcomercio.com.api.Commands;
 using grupoelcomercio.com.OrdenDePago.Contracts;
+using grupoelcomercio.com.OrdenDePago.Entities;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System;
 
 namespace grupoelcomercio.com.api.Api
 {
@@ -21,11 +28,13 @@ namespace grupoelcomercio.com.api.Api
 
         [HttpGet]
         [Route("{nombreSucursal}/{nombreTipoMoneda}")]
-        public IHttpActionResult ObtenerOrdenes(string nombreSucursal, string nombreTipoMoneda)
+        public HttpResponseMessage ObtenerOrdenes(string nombreSucursal, string nombreTipoMoneda)
         {
             var result = _ordenRepository.ObtenerOrdenes(nombreSucursal, nombreTipoMoneda);
+            var response = Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new ObjectContent<List<Orden>>(result, new JsonMediaTypeFormatter(), "application/json");
+            return response;
 
-            return Ok(result);
         }
 
         [HttpPost]
@@ -36,6 +45,7 @@ namespace grupoelcomercio.com.api.Api
 
             return Ok(pagarOrden);
         }
+
 
     }
 }
